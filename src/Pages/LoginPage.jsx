@@ -5,9 +5,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FcGoogle } from 'react-icons/fc';
+import { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 export default function LoginPage() {
-    const { loginuser, setUser, user, UpdateProfile, GoogleLogin , setLoading } = useContext(AuthContext)
+    const { loginuser, setUser, user, UpdateProfile, GoogleLogin, setLoading } = useContext(AuthContext)
+    const {theme} = useContext(ThemeContext)
     const navigate = useNavigate()
     const [error, setError] = useState('')
     const [showpassword, setShowPassword] = useState(false)
@@ -65,6 +68,13 @@ export default function LoginPage() {
             })
 
     }
+    const getButtonClass = () => {
+        if (theme === 'dark') {
+          return 'bg-gray-700 hover:bg-purple-400/10 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-white';
+        }
+        return 'bg-gray-200 hover:bg-purple-400/10 border-gray-300 hover:text-purple-700';
+      };
+
 
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -93,7 +103,7 @@ export default function LoginPage() {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn bg-purple-700 text-white hover:bg-purple-600 ">Login</button>
                         </div>
                         <p>Don't Have An Account ?<span>
                             <NavLink
@@ -103,8 +113,9 @@ export default function LoginPage() {
                             <hr className="border-zinc-700" />
                             <Link
                                 onClick={handleGoogle}
-                                className="mx-auto mb-4 mt-8 items-center rounded-md border px-5 py-2 shadow-lg duration-200 hover:bg-zinc-400/10 dark:border-zinc-700 flex dark:hover:bg-zinc-700 dark:hover:text-white">
-                                <FaGoogle className='mr-4 text-xl'></FaGoogle>
+                                className={`mx-auto mb-4 mt-8 items-center rounded-md border px-5 py-2 shadow-lg duration-200 flex ${getButtonClass()}`}
+                            >
+                                <FcGoogle className='mr-4 text-xl' />
                                 Continue with Google
                             </Link>
                         </div>

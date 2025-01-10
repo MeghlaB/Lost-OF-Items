@@ -73,7 +73,7 @@ export default function Myitems() {
 
 
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container mx-auto py-32 px-4">
       {loading ? (
          <div className="flex justify-center pt-6 items-center">
          <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>

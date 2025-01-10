@@ -53,7 +53,7 @@ export default function Footer() {
             About Us
           </Link>
           <Link
-            to="/allCampaign"
+           
             className="hover:text-purple-500 transition duration-300"
           >
             Hlep Us

@@ -75,7 +75,7 @@ const [error,setError] = useState('')
     }
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero my-10 bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-72 lg:w-3/5">
                     <Lottie animationData={registeranimation}></Lottie>
@@ -118,7 +118,7 @@ const [error,setError] = useState('')
                         {error && <div className="text-red-600 text-sm mt-2">{error}</div>} 
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn bg-purple-700 text-white hover:bg-purple-600">Register</button>
                         </div>
                         <p>Already have an account?<span>
                             <NavLink

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export default function AddLost_FoundItem() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
-  const [lost ,setLost] = useState('Lost')
+  const [lost, setLost] = useState('Lost')
 
   const [formData, setFormData] = useState({
     thumbnail: "",
@@ -35,7 +35,7 @@ export default function AddLost_FoundItem() {
     const from = e.target;
     const thumbnail = from.thumbnail.value;
     const title = from.title.value;
-    const type =lost;
+    const type = lost;
     const description = from.description.value;
     const category = from.category.value;
     const location = from.location.value;
@@ -48,16 +48,16 @@ export default function AddLost_FoundItem() {
       category,
       location,
       dateLost,
-      
-      user:{
+
+      user: {
         email: user?.email,
         name: user?.displayName,
       }
-     
+
     };
-console.log(addInfo)
-    axios.post(`${import.meta.env.VITE_API_URL}/addItems`,addInfo, {
-     
+    console.log(addInfo)
+    axios.post(`${import.meta.env.VITE_API_URL}/addItems`, addInfo, {
+
     })
       .then((res) => {
         // console.log(res)
@@ -81,14 +81,14 @@ console.log(addInfo)
           confirmButtonText: "Retry",
         });
       });
-    
+
   };
 
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container mx-auto py-28 px-4">
       <h2 className="text-3xl font-bold text-center mb-8">
         <Typewriter
-          words={["Add Lost/Found Item"]}
+          words={["Add Lost of Found Item"]}
           loop={0}
           cursor
           cursorStyle="|"
@@ -130,7 +130,7 @@ console.log(addInfo)
           <select
             name="type"
             value={lost}
-            onChange={e=>setLost(e.target.value) }
+            onChange={e => setLost(e.target.value)}
             required
             className="w-full px-3 py-2 border rounded"
           >
@@ -190,7 +190,7 @@ console.log(addInfo)
             type="email"
             value={user?.email || ""}
             readOnly
-            className="w-full px-3 py-2 border rounded bg-gray-100"
+            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white"
           />
         </div>
 
@@ -200,9 +200,10 @@ console.log(addInfo)
             type="text"
             value={user?.displayName || ""}
             readOnly
-            className="w-full px-3 py-2 border rounded bg-gray-100"
+            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white"
           />
         </div>
+
 
         <div className="text-center">
           <button

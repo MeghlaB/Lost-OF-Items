@@ -31,7 +31,7 @@ export default function AllRecoveries() {
     }, [user?.email]);
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container py-28 mx-auto p-6">
             <h2 className="text-3xl font-bold text-center mb-6">
                 <Typewriter
                     words={['All Recovered Items']}
