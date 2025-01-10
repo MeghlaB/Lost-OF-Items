@@ -48,7 +48,7 @@ export default function AddLost_FoundItem() {
       category,
       location,
       dateLost,
-
+      status:'pending',
       user: {
         email: user?.email,
         name: user?.displayName,
@@ -57,7 +57,6 @@ export default function AddLost_FoundItem() {
     };
     console.log(addInfo)
     axios.post(`${import.meta.env.VITE_API_URL}/addItems`, addInfo, {
-
     })
       .then((res) => {
         // console.log(res)
