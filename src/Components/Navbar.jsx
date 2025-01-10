@@ -25,7 +25,7 @@ export default function Navbar() {
     return (
         <div
         className={`navbar ${
-            theme === 'dark' ? 'bg-slate-800 text-white ' : 'bg-white'
+            theme === 'dark' ? 'bg-slate-800 text-white/55 ' : 'bg-[#F3F4F6]'
           }  py-0 lg:py-4 text-slate-900 px-3 lg:px-9 fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-2xl z-50 shadow-lg`}
         >
             <div className="navbar-start">
@@ -102,11 +102,13 @@ export default function Navbar() {
                         </NavLink>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">
-                    {' '}
-                    <img className="w-10 h-10  rounded-full hidden lg:block" src={logo} alt="" />
-                   <span className='banner-design'>Lost&Found</span>
-                </a>
+                <a className="btn btn-ghost text-xl flex items-center">
+    <img className="w-10 h-10 rounded-full hidden lg:block" src={logo} alt="Logo" />
+    <span className="banner-design text-xs lg:text-xl -ml-2 lg:ml-3">
+        Lost&Found
+    </span>
+</a>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-[19px] font-medium  gap-4">
@@ -129,6 +131,16 @@ export default function Navbar() {
                         to={'/allItems'}
                     >
                         Lost & Found Items Page
+                    </NavLink>
+                    <NavLink
+                       className={({ isActive }) =>
+                        isActive
+                            ? 'text-purple-600 '
+                            : ''
+                    }
+                    to={'/about'}
+                    >
+                        About Us
                     </NavLink>
                 </ul>
             </div>

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from "motion/react"
 import { easeOut } from 'motion';
 import { Typewriter } from 'react-simple-typewriter';
+import ThemeProvider, { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 export default function MakeQuestions() {
+    const {theme} = useContext(ThemeContext)
     const handleMessage = (e) => {
         e.preventDefault();
         toast.success('Message sent successfully!', {
@@ -19,7 +21,7 @@ export default function MakeQuestions() {
         <motion.h1
             animate={{ x:30 }}
             transition={{ duration: 2, delay: 1, ease: easeOut, repeat: Infinity }}
-            className=" text-2xl lg:text-5xl font-bold text-center">What Questions Do Our Customers<br /><span
+            className={`text-2xl lg:text-5xl font-bold text-center ${theme === 'dark'?'text-white':''}`}>What Questions Do Our Customers<br /><span
             className='text-purple-600'
              >
                 <Typewriter
@@ -79,7 +81,7 @@ export default function MakeQuestions() {
             {/* Cotact us */}
             <div>
 
-            <h2 className="text-center text-3xl font-semibold pb-5 tracking-tight">Do You Have Any 
+            <h2 className={`text-center text-3xl font-semibold pb-5 tracking-tight ${theme === 'dark'?'text-white':'text-black'}`}>Do You Have Any 
                 <span
                 className='text-purple-600'
                 >
@@ -138,7 +140,7 @@ export default function MakeQuestions() {
                     </div>
                     <button 
                     onClick={handleMessage}
-                    className="rounded-md bg-sky-500 px-4 py-2 text-white transition-colors hover:bg-sky-600 dark:bg-sky-700">Send Message</button>
+                    className="rounded-md bg-purple-700 px-4 py-2 text-white transition-colors hover:bg-purple-600 ">Send Message</button>
                 </form>
             </motion.div>
             </div>

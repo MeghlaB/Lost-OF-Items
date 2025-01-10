@@ -55,7 +55,7 @@ export default function AddLost_FoundItem() {
       }
      
     };
-// console.log(addInfo)
+console.log(addInfo)
     axios.post(`${import.meta.env.VITE_API_URL}/addItems`,addInfo, {
      
     })

@@ -110,7 +110,7 @@ const LatestFindLostItems = () => {
                 )}
             </div>
             <div className="flex justify-center items-center mt-6">
-                <Link to="/allItems" className="btn px-6 bg-purple-600 text-white">
+                <Link to="/allItems" className="btn px-6 bg-purple-600 hover:bg-purple-600 text-white">
                     See All
                 </Link>
             </div>

@@ -18,6 +18,7 @@ import DelatePost from "../PrivetRoute/DelatePost";
 import Allrecovery from "../PrivetRoute/Allrecovery";
 import ErrorPage from "../Pages/ErrorPage";
 import ScrollToTopOnMount from "../Components/ScrollComponent";
+import AboutUs from "../Pages/AboutUs";
 
   
 const router = createBrowserRouter([
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             <ScrollToTopOnMount></ScrollToTopOnMount>
             <DetailsPages></DetailsPages>
             </PrivetRoute>
+        },
+        {
+          path:'about',
+          element:<AboutUs></AboutUs>
         }
       ]
     },

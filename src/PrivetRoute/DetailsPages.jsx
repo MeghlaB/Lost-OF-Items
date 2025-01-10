@@ -76,7 +76,7 @@ export default function DetailsPages() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto my-10">
+    <div className="bg-white mx-3 md:mx-4 lg:mx-auto rounded-xl shadow-lg overflow-hidden max-w-4xl  my-28">
       <div className="relative">
         <img
           className="w-full h-[250px] lg:h-[550px] object-cover"

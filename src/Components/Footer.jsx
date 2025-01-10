@@ -10,8 +10,8 @@ export default function Footer() {
 
   return (
     <footer
-      className={`py-12 ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-[#F2F2F2] text-gray-700"
+      className={`py-10 ${
+        theme === "dark" ? "bg-gray-800 text-white" : "bg-base-300 text-gray-700"
       }`}
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
