@@ -158,7 +158,7 @@ export default function Navbar() {
                 </div>
                 {user ? (
                     <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn m-1">
+                        <div tabIndex={0} role="button" className="  border-4 border-purple-600 rounded-full p-1 m-1">
                             <img
                                 src={user?.photoURL}
                                 className="w-10 h-10 rounded-full cursor-pointer"

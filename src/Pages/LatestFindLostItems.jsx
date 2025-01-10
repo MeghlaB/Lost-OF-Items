@@ -20,8 +20,6 @@ const LatestFindLostItems = () => {
     const sortedItems = items.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 6);
 
 
-
-
     const handleMouseMove = (e) => {
         setCursorPos({
             x: e.clientX,
@@ -69,7 +67,6 @@ const LatestFindLostItems = () => {
                     transition: 'transform 0.2s ease-in-out',
                 }}
             />
-
             <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {sortedItems.length > 0 ? (
                     sortedItems.map((item) => (

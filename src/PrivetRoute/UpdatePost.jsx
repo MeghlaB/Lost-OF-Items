@@ -6,10 +6,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useLoaderData, useParams } from "react-router-dom";
 import axios from "axios";
 import UserAxiosSecure from "../Hooks/UserAxiosSecure";
+import { ThemeContext } from "../AuthProvider/ThemeProvider";
 
 export default function UpdatePost() {
     const axiosSecure = UserAxiosSecure()
   const { user } = useContext(AuthContext);
+  const {theme} = useContext(ThemeContext)
   const navigate = useNavigate();
   const updateData = useLoaderData();
 // console.log(updateData)
@@ -79,8 +81,10 @@ export default function UpdatePost() {
   };
 
   return (
-    <div className="max-w-lg mx-auto my-10 p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold text-center mb-6">Update Lost/Found Item</h2>
+    <div className=" mb-8 mt-16 ">
+     <h2 className="text-2xl font-bold text-center pt-24 pb-8 ">Update Lost/Found Item</h2>
+      <div className={`py-8 max-w-lg mx-auto  shadow-md rounded-lg p-6 ${theme ==='dark'?'bg-gray-800':'bg-white'}`}>
+      <div>
       <form onSubmit={handleSubmit}>
         {/* Post Type */}
         <label className="block mb-2 font-medium">Post Type</label>
@@ -181,10 +185,12 @@ export default function UpdatePost() {
     />
 
         {/* Add Post Button */}
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-purple-600 hover:bg-purple-600 text-white w-full">
           Update Post
         </button>
       </form>
+      </div>
+      </div>
     </div>
   );
 }

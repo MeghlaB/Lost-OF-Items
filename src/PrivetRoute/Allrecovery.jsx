@@ -6,21 +6,27 @@ import { Typewriter } from "react-simple-typewriter";
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
 import { CiViewTable } from "react-icons/ci";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ThemeContext } from "../AuthProvider/ThemeProvider"; 
 import { Link } from "react-router-dom";
 
 export default function AllRecoveries() {
     const axiosSecure = UserAxiosSecure();
     const { user } = useContext(AuthContext);
+    const { theme } = useContext(ThemeContext); 
     const [recoveriesPost, setRecoveriesPost] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [cardLayOut, setLayOut] = useState(false);
 
+    const getBgClass = () => (theme === 'dark' ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900');
+    const getTableClass = () => (theme === 'dark' ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-800');
+    const getBorderClass = () => (theme === 'dark' ? 'border-gray-600' : 'border-gray-200');
+    const getHoverClass = () => (theme === 'dark' ? 'hover:bg-gray-600' : 'hover:bg-gray-50');
+
     useEffect(() => {
         axiosSecure
             .get(`/allrecoveries?email=${user?.email}`)
             .then((response) => {
-                console.log(response.data)
                 setRecoveriesPost(response.data);
                 setLoading(false);
             })
@@ -31,7 +37,7 @@ export default function AllRecoveries() {
     }, [user?.email]);
 
     return (
-        <div className="container py-28 mx-auto p-6">
+        <div className={`container py-28 mx-auto p-6 `}>
             <h2 className="text-3xl font-bold text-center mb-6">
                 <Typewriter
                     words={['All Recovered Items']}
@@ -52,7 +58,6 @@ export default function AllRecoveries() {
                 </button>
             </div>
 
-     
             {loading ? (
                 <div className="flex justify-center pt-6 items-center">
                     <div className="w-10 h-10 animate-spin rounded-full border-8 border-dotted border-sky-600"></div>
@@ -66,19 +71,15 @@ export default function AllRecoveries() {
                     No recovered items found. You haven't recovered any items yet.
                 </div>
             ) : cardLayOut ? (
-       
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {recoveriesPost.map((item) => (
-                        <motion.div key={item._id} className="border-4 border-t-4 border-t-purple-700 p-4 rounded-t-3xl shadow hover:shadow-lg animate-puls"
-                        initial={{opacity:0, y:5}}
-                        animate={{opacity:1, y:5}}
-                        transition={
-                          {
-                            duration:0.5,
-                            delay:recoveriesPost.indexOf(item)*0.5
-
-                          }
-                        }
+                        <motion.div key={item._id} className={`border-4 p-4 rounded-t-3xl shadow hover:shadow-lg ${getBorderClass()}`}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: recoveriesPost.indexOf(item) * 0.5,
+                            }}
                         >
                             <div>
                                 <img
@@ -93,24 +94,23 @@ export default function AllRecoveries() {
                     ))}
                 </div>
             ) : (
-                // Table Layout
-                <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
-                    <table className="table-auto w-full border-collapse">
-                        <thead className="bg-gray-100">
+                <div className="overflow-x-auto shadow-lg rounded-lg">
+                    <table className={`table-auto w-full border-collapse ${getTableClass()}`}>
+                        <thead>
                             <tr>
-                                <th className="px-6 py-3 text-left text-[16px] font-medium text-gray-700 border-b">Title</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Category</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Recovered Location</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Recovered Date</th>
+                                <th className="px-6 py-3 text-left text-[16px] font-medium border-b">Title</th>
+                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Category</th>
+                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Recovered Location</th>
+                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Recovered Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             {recoveriesPost.map(item => (
-                                <tr key={item._id} className="hover:bg-gray-50">
-                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 border-b">{item.title}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-700 border-b">{item.category}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-700 border-b">{item.recoverLocation}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-700 border-b">{new Date(item.recoveryDate).toLocaleDateString()}</td>
+                                <tr key={item._id} className={`${getHoverClass()}`}>
+                                    <td className="px-6 py-4 text-sm font-medium border-b">{item.title}</td>
+                                    <td className="px-6 py-4 text-sm border-b">{item.category}</td>
+                                    <td className="px-6 py-4 text-sm border-b">{item.recoverLocation}</td>
+                                    <td className="px-6 py-4 text-sm border-b">{new Date(item.recoveryDate).toLocaleDateString()}</td>
                                 </tr>
                             ))}
                         </tbody>

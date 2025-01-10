@@ -10,11 +10,12 @@ const DynamicTitle = () => {
       case '/':
         return 'Lost&FoundItems | Home';
       case '/allItems':
-        return 'Lost & Found Items Page';
+        return 'Lost&FoundItems | AllItems';
       case '/addItems':
         return 'Add Lost & Found Item';
-      case '/addItems':
-        return 'Add Lost & Found Item';
+      case '/about':
+        return 'Lost&FoundItems | About Us';
+  
       case '/allrecovere':
         return 'All Recovered Items';
       case '/myItems':
