@@ -57,7 +57,7 @@ const LostofItems = () => {
                 </label>
             </div>
       <h2 className="text-center text-2xl font-bold mb-6">Lost & Found Items</h2>
-      <div className="pt-10 grid grid-cols-1 md:grid-cols-2 items-center lg:grid-cols-3 gap-24 ">
+      <div className="pt-10 grid grid-cols-1 md:grid-cols-2 items-center lg:grid-cols-3 gap-24">
         {filteredItems.map((item) => (
           <motion.div key={item._id} className="card card-compact bg-base-100 w-96 shadow-xl"
           initial={{opacity:0, y:5}}

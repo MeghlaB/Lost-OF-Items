@@ -24,10 +24,9 @@ export default function Navbar() {
 
     return (
         <div
-            className={`navbar ${scrolled
-                    ? 'fixed top-0 left-0 w-full bg-base-300 bg-opacity-70 backdrop-blur-md z-50 shadow-lg'
-                    : 'static bg-base-300'
-                } transition-all duration-300`}
+        className={`navbar ${
+            theme === 'dark' ? 'bg-slate-800 text-white ' : 'bg-white'
+          }  py-0 lg:py-4 text-slate-900 px-3 lg:px-9 fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-2xl z-50 shadow-lg`}
         >
             <div className="navbar-start">
                 <div className="dropdown">
@@ -110,11 +109,11 @@ export default function Navbar() {
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-[19px] font-bold  gap-4">
+                <ul className="menu menu-horizontal px-1 text-[19px] font-medium  gap-4">
                     <NavLink
                         className={({ isActive }) =>
                             isActive
-                                ? 'text-black font-bold border-b-4 border-purple-600'
+                                ? 'text-purple-600  '
                                 : ''
                         }
                         to={'/'}
@@ -124,7 +123,7 @@ export default function Navbar() {
                     <NavLink
                         className={({ isActive }) =>
                             isActive
-                                ? 'text-black font-bold border-b-4 border-purple-600'
+                                ? 'text-purple-600 '
                                 : ''
                         }
                         to={'/allItems'}
@@ -163,7 +162,7 @@ export default function Navbar() {
                             <NavLink
                                 className={({ isActive }) =>
                                     isActive
-                                        ? 'text-black font-bold border-b-4 border-purple-600'
+                                        ? 'text-purple-600 '
                                         : ''
                                 }
                                 to="/addItems"
@@ -173,7 +172,7 @@ export default function Navbar() {
                             <NavLink
                                 className={({ isActive }) =>
                                     isActive
-                                        ? 'text-black font-bold border-b-4 border-purple-600'
+                                        ? 'text-purple-600 '
                                         : ''
                                 }
                                 to="/allrecovere"
@@ -183,7 +182,7 @@ export default function Navbar() {
                             <NavLink
                                 className={({ isActive }) =>
                                     isActive
-                                        ? 'text-black font-bold border-b-4 border-purple-600'
+                                        ? 'text-purple-600 '
                                         : ''
                                 }
                                 to="/myItems"
@@ -192,7 +191,7 @@ export default function Navbar() {
                             </NavLink>
                             <button
                                 onClick={logout}
-                                className="bg-red-500 text-white mt-4 p-4 rounded hover:bg-red-600"
+                                className="bg-[#7935AF] text-white mt-4 p-4 rounded hover:bg-purple-700"
                             >
                                 Logout
                             </button>

@@ -7,16 +7,16 @@ import Logosection from './Logosection'
 
 export default function Home() {
     return (
-        <div>
+        <div className='py-16 md:py-20'>
             <Banner></Banner>
             {/* <Logosection></Logosection> */}
-            <LatestFindLostItems></LatestFindLostItems>
+            {/* <LatestFindLostItems></LatestFindLostItems>
             <div className='p-10'>
                 <Feautred></Feautred>
             </div>
             <div className='p-10 '>
             <MakeQuestions></MakeQuestions>
-            </div>
+            </div> */}
         </div>
     )
 }
