@@ -51,55 +51,55 @@ export default function Navbar() {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2  shadow"
                     >
                         <NavLink
-                            className={({ isActive }) =>
+                             className={({ isActive }) =>
                                 isActive
-                                    ? 'text-black font-bold border-b-4 border-purple-600'
+                                    ? 'text-purple-600 '
                                     : ''
-                            }
-                            to={'/'}
+                            } to={'/'}
                         >
                             Home
                         </NavLink>
                         <NavLink
-                            className={({ isActive }) =>
-                                isActive
-                                    ? 'text-black font-bold border-b-4 border-purple-600'
-                                    : ''
-                            }
-                            to={'/allItems'}
-                        >
-                            Lost & Found Items Page
-                        </NavLink>
+                       className={({ isActive }) =>
+                        isActive
+                            ? 'text-purple-600 '
+                            : ''
+                    }
+                    to={'/about'}
+                    >
+                        About Us
+                    </NavLink>
+
                         <NavLink
-                            className={({ isActive }) =>
-                                isActive
-                                    ? 'text-black font-bold border-b-4 border-purple-600'
-                                    : ''
-                            }
-                            to={'/addItems'}
-                        >
-                            Add Lost & Found Item
-                        </NavLink>
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive
-                                    ? 'text-black font-bold border-b-4 border-purple-600'
-                                    : ''
-                            }
-                            to={'/allrecovere'}
-                        >
-                            All Recovered Items
-                        </NavLink>
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive
-                                    ? 'text-black font-bold border-b-4 border-purple-600'
-                                    : ''
-                            }
-                            to={'/myItems'}
-                        >
-                            Manage My Items
-                        </NavLink>
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'text-purple-600 '
+                                        : ''
+                                }
+                                to="/addItems"
+                            >
+                                Add Lost & Found Item
+                            </NavLink>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'text-purple-600 '
+                                        : ''
+                                }
+                                to="/allrecovere"
+                            >
+                                All Recovered Items
+                            </NavLink>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? 'text-purple-600 '
+                                        : ''
+                                }
+                                to="/myItems"
+                            >
+                                Manage My Items
+                            </NavLink>
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl flex items-center">

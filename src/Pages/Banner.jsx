@@ -40,7 +40,7 @@ export default function Banner() {
     <h3 className='space-y-3 text-purple-500 typewriter '>
       {carouselImages[currentSlider].title}
     </h3>
-    <p className='text-xl'>{carouselImages[currentSlider].description}</p>
+    <p className='text-xs md:text-xl'>{carouselImages[currentSlider].description}</p>
   </div>
 
   <div className="flex justify-center items-center rounded-full z-50 absolute bottom-4 w-full gap-1">

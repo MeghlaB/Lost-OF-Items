@@ -24,7 +24,7 @@ export default function HelpUs() {
         >
             {/* Testimonial Title */}
             <motion.h1
-                className="text-center text-4xl font-bold mb-12"
+                className="text-center text-xl lg:text-4xl font-bold mb-12"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}

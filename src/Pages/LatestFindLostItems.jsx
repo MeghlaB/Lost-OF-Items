@@ -67,12 +67,12 @@ const LatestFindLostItems = () => {
                     transition: 'transform 0.2s ease-in-out',
                 }}
             />
-            <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 lg:gap-10">
                 {sortedItems.length > 0 ? (
                     sortedItems.map((item) => (
                         <motion.div
                             key={item._id}
-                            className="card card-compact bg-base-100 w-96 shadow-xl m-2"
+                            className="card card-compact bg-base-100  shadow-xl m-2"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.05 }}
