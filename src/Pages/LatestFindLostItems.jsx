@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
+import { ThemeContext } from "../AuthProvider/ThemeProvider";
 
 const LatestFindLostItems = () => {
     const [items, setItems] = useState([]);
+    const {theme} = useContext(ThemeContext)
 
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
@@ -87,8 +89,8 @@ const LatestFindLostItems = () => {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{item.title}</h2>
-                                <p className="text-xl text-gray-600">Location: {item.location}</p>
-                                <p className="text-xl text-gray-600">
+                                <p className={`text-xl ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>Location: {item.location}</p>
+                                <p className={`text-xl ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>
                                     Date: {new Date(item.dateLost).toLocaleDateString()}
                                 </p>
                                 <div className="card-actions justify-end">

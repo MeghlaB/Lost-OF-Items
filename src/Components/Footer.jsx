@@ -67,7 +67,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-6">
             <a
-              href="https://www.facebook.com/groups/252388829152378"
+              href="https://www.merriam-webster.com/dictionary/lost%20and%20found"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 transition duration-300"
