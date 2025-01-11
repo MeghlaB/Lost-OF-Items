@@ -29,17 +29,60 @@ export default function DetailsPages() {
       .catch((error) => console.error(" fetching item:", error));
   }, [id]);
 
+  // const handleSubmit = async () => {
+  //   if (!recoverLocation.trim()) {
+  //     Swal.fire("Error!", "Please provide a recovery location.", "warning");
+  //     return;
+  //   }
+
+  //   if (!recoveryDate || isNaN(new Date(recoveryDate).getTime())) {
+  //     Swal.fire("Error!", "Please select a recovery date.", "warning");
+  //     return;
+  //   }
+
+  //   const formattedDate = recoveryDate.toISOString();
+  //   const recoveryData = {
+  //     recoverLocation,
+  //     recoveryDate: formattedDate,
+  //     type: item.type,
+  //     title: item.title,
+  //     category: item.category,
+  //     status: item.status,
+  //     recoverBy: {
+  //       email: user?.email,
+  //       name: user?.displayName,
+  //       image: user?.photoURL,
+  //     },
+  //   };
+
+  //   try {
+
+  //     await axiosSecure.post(`/recovere`, recoveryData);
+
+  //     await axiosSecure.patch(`/items/${id}`, {
+  //       status: "recovered",
+  //     });
+
+
+  //     Swal.fire("SuccessFully Update!");
+  //     closeModal();
+  //     setIsRecovered(true);
+  //   } catch (error) {
+  //     console.error("Error adding recovery:", error);
+  //     Swal.fire("Failed to mark the item as recovered", "error");
+  //   }
+  // };
   const handleSubmit = async () => {
     if (!recoverLocation.trim()) {
       Swal.fire("Error!", "Please provide a recovery location.", "warning");
       return;
     }
-
+  
     if (!recoveryDate || isNaN(new Date(recoveryDate).getTime())) {
       Swal.fire("Error!", "Please select a recovery date.", "warning");
       return;
     }
-
+  
     const formattedDate = recoveryDate.toISOString();
     const recoveryData = {
       recoverLocation,
@@ -47,31 +90,40 @@ export default function DetailsPages() {
       type: item.type,
       title: item.title,
       category: item.category,
-      status: item.status,
+      status: "recovered",
       recoverBy: {
         email: user?.email,
         name: user?.displayName,
         image: user?.photoURL,
       },
     };
-
+  
     try {
-
+      // Recover information POST request
       await axiosSecure.post(`/recovere`, recoveryData);
-
+  
+      // Update item status on server
       await axiosSecure.patch(`/items/${id}`, {
         status: "recovered",
       });
-
-
-      Swal.fire("SuccessFully Update!");
+  
+      // Locally update the item status
+      setItem((prevItem) => ({
+        ...prevItem,
+        status: "recovered",
+      }));
+  
+      Swal.fire("Success!", "Item successfully marked as recovered!", "success");
       closeModal();
       setIsRecovered(true);
     } catch (error) {
       console.error("Error adding recovery:", error);
-      Swal.fire("Failed to mark the item as recovered", "error");
+      Swal.fire("Failed!", "Failed to mark the item as recovered.", "error");
     }
   };
+  
+
+
 
   const closeModal = () => {
     setModalOpen(false);
@@ -106,7 +158,7 @@ export default function DetailsPages() {
               : "bg-yellow-100 text-yellow-600"
               }`}
           >
-            {item.status ? "Recovered" : "Pending"}
+            {item.status === "recovered" ? "recovered" : "pending"}
           </div>
           <div className="text-gray-700 space-y-2">
             <p>
