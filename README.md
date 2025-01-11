@@ -1,8 +1,10 @@
-#1.**Assignment Category:**  **11**🌟🌟
+#1.**Project Name:**  **Lost OF Items**🌟🌟
 
 #2.**Live-Link=>** https://assingment11lostfound.web.app
 
 #3.**Description =>**  WhereIsIt is a platform designed to connect individuals who have lost personal belongings with those who have found them. Users can report lost items, browse found items, and interact to recover their belongings. This project helps foster a community-driven solution to lost and found problems.
+
+----
 
 #4. **key features of my project =>**
 
@@ -16,21 +18,69 @@
 
 ⁕ Interactive UI
 
+---
 
 #5. **Technology used =>**
+---
 
-⁕**React.js**: For building dynamic and interactive user interfaces.
+### Frontend:
+- **React.js** 
+- **Tailwind CSS** 
+- **daisyUI** 
+- **React-tooltip** 
+- **React-simple-typewriter** 
+- **React Awesome Reveal**
 
-⁕ **Tailwind CSS**: For creating a responsive, mobile-first design.
 
-⁕ **React Router**: To handle routing and navigation within the app.
+### Backend:
+- **Node.js**
+- **Express.js** 
+- **MongoDB** 
 
-⁕  **JWT Authentication**: For secure user login and authorization.
+### Authentication:
+- **Firebase Authentication** - Secure and easy authentication system for user login
+-  **JWT Authentication** - For secure user login and authorization.
 
-***SweetAlert**: For displaying alerts and notifications throughout the app.
+---
+### Frontend Dependencies:
+- `react`
+- `react-router-dom`
+- `tailwindcss`
+- `firebase`
+- `recharts`
+- `daisyui`
+- `react-tooltip`
+- `react-simple-typewriter`
+- `react-awesome-reveal`
+- `axios`
+- `react-datepicker`
+- `framer-motion`
 
-#6. **Deployment**
+ ### Backend Dependencies:
+- `express`
+- `mongodb`
+- `cookie-parser`
+- `jsonwebtoken`
+- `cors`
 
-⁕ Vercel
+  ---
 
-⁕ firebase
+### Getting Started
+---
+To run this project on your local machine, follow these steps:
+
+### 1. Clone the repository:
+```bash or terminals
+git clone https://github.com/MeghlaB/Lost_of_Items.git
+cd Lost_of_Items
+```
+### 2.Install dependencies:
+
+npm install
+
+### 3. Run the frontend
+
+npm run dev or npm start
+
+ 
+
