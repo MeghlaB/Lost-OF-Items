@@ -74,7 +74,7 @@ const LatestFindLostItems = () => {
                     sortedItems.map((item) => (
                         <motion.div
                             key={item._id}
-                            className={`card card-compact ${getBgClass()}  shadow-xl m-2`}
+                            className={`card card-compact ${getBgClass()} border-2 border-purple-800  shadow-xl m-2`}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.05 }}
