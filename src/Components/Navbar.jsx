@@ -23,7 +23,7 @@ export default function Navbar() {
     return (
         <div
             className={`navbar ${theme === 'dark' ? 'bg-slate-900 text-white/55' : 'bg-[#F3F4F6]'
-                } py-0 lg:py-4 text-slate-900 px-3 lg:px-9 fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-2xl z-50 shadow-lg`}
+                } py-0 lg:py-4  text-slate-900 px-3 lg:px-9 fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-2xl z-50 shadow-lg`}
         >
             <div className="navbar-start">
                 <div className="dropdown">
@@ -69,7 +69,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl flex items-center">
-                    <img className="w-10 h-10 rounded-full hidden lg:block" src={logo} alt="Logo" />
+                    <img className="w-10 h-10 border-2 border-purple-600 rounded-full hidden lg:block" src={logo} alt="Logo" />
                     <span className="banner-design text-xs lg:text-xl -ml-2 lg:ml-3">
                         Lost&Found
                     </span>

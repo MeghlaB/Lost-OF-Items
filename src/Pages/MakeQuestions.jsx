@@ -8,6 +8,9 @@ import ThemeProvider, { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 export default function MakeQuestions() {
     const {theme} = useContext(ThemeContext)
+        const getTextClass = () => (theme === "dark" ? "text-gray-100" : "text-gray-900");
+        const getSubTextClass = () => (theme === "dark" ? "text-white/75" : "text-gray-800");
+        const getBgClass = () => (theme === "dark" ? "bg-gray-800 text-gray-100" : "bg-base-200 text-gray-900");
     const handleMessage = (e) => {
         e.preventDefault();
         toast.success('Message sent successfully!', {
@@ -21,7 +24,7 @@ export default function MakeQuestions() {
         <motion.h1
             animate={{ x:30 }}
             transition={{ duration: 2, delay: 1, ease: easeOut, repeat: Infinity }}
-            className={`text-2xl lg:text-5xl font-bold text-center ${theme === 'dark'?'text-white':''}`}>What Questions Do Our Customers<br /><span
+            className={`text-2xl lg:text-5xl font-bold text-center ${getTextClass()}`}>What Questions Do Our Customers<br /><span
             className='text-purple-600'
              >
                 <Typewriter
@@ -42,37 +45,37 @@ export default function MakeQuestions() {
             <motion.div 
             animate={{ y: [200,0] }}
             transition={{duration: 10}} className='space-y-3'>
-                <div className="collapse collapse-plus bg-base-200">
+                <div className={`collapse collapse-plus ${getBgClass()}`}>
                     <input type="radio" name="my-accordion-3" defaultChecked />
-                    <div className="collapse-title text-xl font-medium">How Much Does it Cost</div>
+                    <div className={`collapse-title text-xl font-medium ${getSubTextClass()}`}>How Much Does it Cost</div>
                     <div className="collapse-content">
                         <p>The Lost and Found App is free of charge for up to 1,000 new registered items per year.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-plus bg-base-200">
+                <div className={`collapse collapse-plus ${getBgClass()}`}>
                     <input type="radio" name="my-accordion-3" />
-                    <div className="collapse-title text-xl font-medium">Can I Import My Exiting Data</div>
+                    <div className={`collapse-title text-xl font-medium ${getSubTextClass()}`}>Can I Import My Exiting Data</div>
                     <div className="collapse-content">
                         <p>Yes! We integrate your historic lost and found data for free.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-plus bg-base-200">
+                <div className={`collapse collapse-plus ${getBgClass()}`}>
                     <input type="radio" name="my-accordion-3" />
-                    <div className="collapse-title text-xl font-medium">Will My Team Need Training</div>
+                    <div className={`collapse-title text-xl font-medium ${getSubTextClass()}`}>Will My Team Need Training</div>
                     <div className="collapse-content">
                         <p>We've had lots of customers participate in the beta for the Lost and Found App, and the feedback we've received is that it is incredibly intuitive. However, we do realize that new things take some getting used to. This is why you can schedule webinars that help your team make the move to the new Lost and Found App.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-plus bg-base-200">
+                <div className={`collapse collapse-plus ${getBgClass()}`}>
                     <input type="radio" name="my-accordion-3" />
-                    <div className="collapse-title text-xl font-medium">Who Can I Hlep Me Set Everything Up?</div>
+                    <div className={`collapse-title text-xl font-medium ${getSubTextClass()}`}>Who Can I Hlep Me Set Everything Up?</div>
                     <div className="collapse-content">
                         <p>Our team can guide you through the entire process. Just get in touch and let us know what you need.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-plus bg-base-200">
+                <div className={`collapse collapse-plus ${getBgClass()}`}>
                     <input type="radio" name="my-accordion-3" />
-                    <div className="collapse-title text-xl font-medium">Click to open this one and close others</div>
+                    <div className={`collapse-title text-xl font-medium ${getSubTextClass()}`}>Click to open this one and close others</div>
                     <div className="collapse-content">
                         <p>hello</p>
                     </div>
@@ -81,7 +84,7 @@ export default function MakeQuestions() {
             {/* Cotact us */}
             <div>
 
-            <h2 className={`text-center text-3xl font-semibold pb-5 tracking-tight ${theme === 'dark'?'text-white':'text-black'}`}>Do You Have Any 
+            <h2 className={`text-center text-3xl font-semibold pb-5 tracking-tight ${theme === 'dark'?'text-white ':'text-black'}`}>Do You Have Any 
                 <span
                 className='text-purple-600'
                 >
@@ -99,7 +102,7 @@ export default function MakeQuestions() {
             <motion.div 
             animate={{ y: [200,0] }}
             transition={{duration: 10}}
-            className="w-full max-w-md mx-auto rounded-lg  px-10 pb-10 pt-8 shadow-md bg-base-200">
+            className={`w-full max-w-md mx-auto rounded-lg  px-10 pb-10 pt-8 shadow-md  ${getBgClass()}`}>
                 <form className="w-full space-y-6">
                     <div className="space-y-2 text-sm text-zinc-700 dark:text-zinc-400">
                         <label className="block font-medium" htmlFor="name">

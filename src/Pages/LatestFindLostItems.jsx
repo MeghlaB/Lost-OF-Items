@@ -19,7 +19,7 @@ const LatestFindLostItems = () => {
             });
     }, []);
 
-    const sortedItems = items.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 6);
+    const sortedItems = items.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 8);
 
 
     const handleMouseMove = (e) => {
@@ -69,7 +69,7 @@ const LatestFindLostItems = () => {
                     transition: 'transform 0.2s ease-in-out',
                 }}
             />
-            <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 lg:gap-10">
+            <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 lg:gap-4">
                 {sortedItems.length > 0 ? (
                     sortedItems.map((item) => (
                         <motion.div
