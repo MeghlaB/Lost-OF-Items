@@ -22,7 +22,7 @@ export default function Navbar() {
 
     return (
         <div
-            className={`navbar ${theme === 'dark' ? 'bg-slate-800 text-white/55' : 'bg-[#F3F4F6]'
+            className={`navbar ${theme === 'dark' ? 'bg-slate-900 text-white/55' : 'bg-[#F3F4F6]'
                 } py-0 lg:py-4 text-slate-900 px-3 lg:px-9 fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-2xl z-50 shadow-lg`}
         >
             <div className="navbar-start">
