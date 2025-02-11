@@ -117,7 +117,7 @@ export default function Navbar() {
                         <div
                             tabIndex={0}
                             role="button"
-                            className="border-4 border-purple-600 rounded-full p-1 m-1"
+                            className="border-2 border-purple-600 rounded-full p-1 m-1"
                         >
                             <img
                                 src={user?.photoURL}

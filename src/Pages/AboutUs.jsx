@@ -138,6 +138,55 @@ export default function AboutUs() {
             ))}
           </div>
         </motion.div>
+        <motion.div
+  className="mt-16 text-center"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  <h3
+    className={`text-3xl font-semibold mb-6 ${
+      isDarkMode ? "text-gray-300" : "text-black/90"
+    }`}
+  >
+    Our Impact
+  </h3>
+  <div className="grid md:grid-cols-3 gap-8">
+    {[
+      {
+        title: "5000+ Items Recovered",
+        description:
+          "Since our launch, we have successfully reunited thousands of lost items with their rightful owners.",
+      },
+      {
+        title: "100K+ Users",
+        description:
+          "A growing community of responsible citizens dedicated to finding and returning lost belongings.",
+      },
+      {
+        title: "95% Success Rate",
+        description:
+          "Our advanced tracking system and community engagement have resulted in an outstanding recovery rate.",
+      },
+    ].map((impact, index) => (
+      <motion.div
+        key={index}
+        className={`rounded-lg shadow-lg p-8 ${
+          isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
+        }`}
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 * index, duration: 0.8 }}
+      >
+        <h4 className="text-xl font-bold text-purple-700 mb-2">
+          {impact.title}
+        </h4>
+        <p>{impact.description}</p>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
       </div>
     </motion.section>
   );
