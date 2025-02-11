@@ -1,7 +1,8 @@
-<<<<<<< HEAD
-=======
 #1.**Project Name:**  **Lost OF Items**🌟🌟
->>>>>>> b916db2dde251d681523a4827bff96efb22076e4
+<p align="center">
+  <img  src='../assets/Capture.PNG' alt="Project Preview" width="600" />
+</p>
+
 
 #2.**Live-Link=>** https://assingment11lostfound.web.app
 
@@ -67,7 +68,6 @@
 - `cors`
 
   ---
-<<<<<<< HEAD
 
 ### Getting Started
 ---
@@ -85,27 +85,3 @@ npm install
 ### 3. Run the frontend
 
 npm run dev or npm start
-
- 
-=======
-
-### Getting Started
----
-To run this project on your local machine, follow these steps:
-
-### 1. Clone the repository:
-```bash or terminals
-git clone https://github.com/MeghlaB/Lost_of_Items.git
-cd Lost_of_Items
-```
-### 2.Install dependencies:
-
-npm install
-
-### 3. Run the frontend
-
-npm run dev or npm start
-
- 
-
->>>>>>> b916db2dde251d681523a4827bff96efb22076e4
