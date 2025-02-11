@@ -24,7 +24,7 @@ export default function MyItems() {
         return;
       }
       const res = await axiosSecure.get(`/myItems/${user?.email}`);
-      setPostItems(res.data);
+      setPostItems(res?.data);
     } catch (error) {
       console.error("Error fetching items:", error);
     } finally {
@@ -52,7 +52,7 @@ export default function MyItems() {
       if (result.isConfirmed) {
         try {
           const res = await axiosSecure.delete(`/items/${_id}`);
-          if (res.status === 200) {
+          if (res?.status === 200) {
             Swal.fire("Deleted!", "Your item has been deleted.", "success");
             setPostItems(postItems.filter((post) => post._id !== _id));
           }
@@ -72,7 +72,7 @@ export default function MyItems() {
         </div>
       ) : (
         <div>
-          {postItems.length === 0 ? (
+          {postItems?.length === 0 ? (
             <p className="text-xl text-center text-gray-500">No items found.</p>
           ) : (
             <div>
@@ -89,7 +89,7 @@ export default function MyItems() {
                     </tr>
                   </thead>
                   <tbody>
-                    {postItems.map((item) => (
+                    {postItems?.map((item) => (
                       <tr key={item._id} className={ theme === 'dark'?'text-white':'text-blcak'}>
                         <td className={`px-6 py-4 text-sm font-medium  border-b `}>{item.title}</td>
                         <td className="px-6 py-4 text-sm border-b">{item.type}</td>

@@ -40,7 +40,7 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     const Unsubscribed = onAuthStateChanged(auth, async (currentUser) => {
-      // console.log('CurrentUser-->', currentUser)
+      console.log('CurrentUser-->', currentUser)
       if (currentUser?.email) {
         setUser(currentUser);
         try {
@@ -64,7 +64,7 @@ export default function AuthProvider({ children }) {
             
           );
           setUser(null); 
-          // console.log('JWT Token:', data);
+          console.log('JWT Token:', data);
         } catch (error) {
           console.error('JWT fetch error:', error);
         }

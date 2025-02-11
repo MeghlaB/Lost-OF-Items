@@ -77,6 +77,8 @@ export default function Navbar() {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-[15px] font-medium gap-4">
+                 {
+                    user?  <>
                     <NavLink to="/" className="hover:text-purple-600">
                         Home
                     </NavLink>
@@ -86,7 +88,29 @@ export default function Navbar() {
                     <NavLink to="/about" className="hover:text-purple-600">
                         About Us
                     </NavLink>
-                    {user && (
+                    <NavLink to="/addItems" className="hover:text-purple-600">
+                                Add Lost & Found Item
+                            </NavLink>
+                            <NavLink to="/allrecovere" className="hover:text-purple-600">
+                                All Recovered Items
+                            </NavLink>
+                            <NavLink to="/myItems" className="hover:text-purple-600">
+                                Manage My Items
+                            </NavLink>
+                             
+                    </>:
+                    <>     <NavLink to="/" className="hover:text-purple-600">
+                        Home
+                    </NavLink>
+                    <NavLink to="/allItems" className="hover:text-purple-600">
+                        Lost & Found Items Page
+                    </NavLink>
+                    <NavLink to="/about" className="hover:text-purple-600">
+                        About Us
+                    </NavLink>
+                            </>
+                 }
+                    {/* {user && (
                         <>
                             <NavLink to="/addItems" className="hover:text-purple-600">
                                 Add Lost & Found Item
@@ -98,7 +122,7 @@ export default function Navbar() {
                                 Manage My Items
                             </NavLink>
                         </>
-                    )}
+                    )} */}
                 </ul>
             </div>
             <div className="navbar-end gap-3">

@@ -1,6 +1,5 @@
 import {
     createBrowserRouter,
-   
   } from "react-router-dom";
  
 
@@ -19,6 +18,7 @@ import Allrecovery from "../PrivetRoute/Allrecovery";
 import ErrorPage from "../Pages/ErrorPage";
 import ScrollToTopOnMount from "../Components/ScrollComponent";
 import AboutUs from "../Pages/AboutUs";
+import PrivateRoute from "../PrivetRoute/Privet";
 
   
 const router = createBrowserRouter([
