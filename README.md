@@ -1,6 +1,6 @@
 #1.**Project Name:**  **Lost OF Items**🌟🌟
 <p align="center">
-  <img  src='../assets/Capture.png' alt="Project Preview" width="600" />
+  <img  src='https://i.ibb.co.com/j9Vy7fT0/Capture.png' alt="Project Preview" width="600" />
 </p>
 
 
