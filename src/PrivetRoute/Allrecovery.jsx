@@ -73,7 +73,7 @@ export default function AllRecoveries() {
             ) : cardLayOut ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {recoveriesPost.map((item) => (
-                        <motion.div key={item._id} className={`border-4 p-4 rounded-t-3xl shadow hover:shadow-lg ${getBorderClass()}`}
+                        <motion.div key={item._id} className={`border-4 p-4 border-purple-800 rounded-t-3xl shadow hover:shadow-lg ${getBorderClass()}`}
                             initial={{ opacity: 0, y: 5 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{
@@ -94,28 +94,32 @@ export default function AllRecoveries() {
                     ))}
                 </div>
             ) : (
-                <div className="overflow-x-auto shadow-lg rounded-lg">
-                    <table className={`table-auto w-full border-collapse ${getTableClass()}`}>
-                        <thead>
-                            <tr>
-                                <th className="px-6 py-3 text-left text-[16px] font-medium border-b">Title</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Category</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Recovered Location</th>
-                                <th className="px-6 py-3 text-left text-sm font-medium border-b">Recovered Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {recoveriesPost.map(item => (
-                                <tr key={item._id} className={`${getHoverClass()}`}>
-                                    <td className="px-6 py-4 text-sm font-medium border-b">{item.title}</td>
-                                    <td className="px-6 py-4 text-sm border-b">{item.category}</td>
-                                    <td className="px-6 py-4 text-sm border-b">{item.recoverLocation}</td>
-                                    <td className="px-6 py-4 text-sm border-b">{new Date(item.recoveryDate).toLocaleDateString()}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                <div className="overflow-x-auto shadow-lg rounded-lg border">
+    <table className={`table-auto w-full border-collapse ${getTableClass()}`}>
+        <thead className="bg-gray-100">
+            <tr>
+                <th className="px-6 py-4 text-left text-lg font-semibold border-b border-gray-300">Title</th>
+                <th className="px-6 py-4 text-left text-lg font-semibold border-b border-gray-300">Category</th>
+                <th className="px-6 py-4 text-left text-lg font-semibold border-b border-gray-300">Recovered Location</th>
+                <th className="px-6 py-4 text-left text-lg font-semibold border-b border-gray-300">Recovered Date</th>
+            </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+            {recoveriesPost.map((item, index) => (
+                <tr 
+                    key={item._id} 
+                    className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} ${getHoverClass()} transition-all duration-300`}
+                >
+                    <td className="px-6 py-4 text-md font-medium text-gray-900 border-b">{item.title}</td>
+                    <td className="px-6 py-4 text-md text-gray-700 border-b">{item.category}</td>
+                    <td className="px-6 py-4 text-md text-gray-700 border-b">{item.recoverLocation}</td>
+                    <td className="px-6 py-4 text-md text-gray-700 border-b">{new Date(item.recoveryDate).toLocaleDateString()}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</div>
+
             )}
         </div>
     );

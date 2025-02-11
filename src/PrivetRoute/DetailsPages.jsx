@@ -150,7 +150,7 @@ export default function DetailsPages() {
             {item.title}
           </h2>
           <p className="text-gray-600 text-lg mb-4">
-            {item.description}
+          <span className="font-semibold">Description:</span>{item.description}
           </p>
           <div
             className={`inline-block text-sm px-3 py-1 rounded-full mb-4 ${item.status === "recovered"
@@ -161,6 +161,7 @@ export default function DetailsPages() {
             {item.status === "recovered" ? "recovered" : "pending"}
           </div>
           <div className="text-gray-700 space-y-2">
+        
             <p>
               <span className="font-semibold">📍 Location:</span>{" "}
               {item.location || "Not recovered yet"}
@@ -169,10 +170,20 @@ export default function DetailsPages() {
               <span className="font-semibold">📁 Category:</span>{" "}
               {item.category}
             </p>
-            <p>
-              <span className="font-semibold">👤 Posted By:</span>{" "}
-              {item?.user?.displayName} ({item?.user?.email})
+          <p><span className="font-semibold">📆  Date:</span>{" "}
+          {item.dateLost}</p>
+           <div>
+             <p>
+              <>
+                <p className=""><span className="font-semibold"> Name: </span>
+                {item?.user?.displayName} 
+                </p>
+                <p className=""><span className="font-semibold"> Email: </span>
+                {item?.user?.email} 
+                </p>
+              </>
             </p>
+           </div>
           </div>
         </div>
   
