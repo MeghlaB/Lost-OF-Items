@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserAxiosSecure from "../Hooks/UserAxiosSecure";
 import { FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../AuthProvider/ThemeProvider";
 
 const LostofItems = () => {
   const axiosSecure = UserAxiosSecure();
+  const {theme} = useContext(ThemeContext)
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("newest");
+  const getBgClass = () => (theme === "dark" ? "bg-gray-800 text-gray-400" : "bg-base-200 text-gray-900");
 
   // Data Fetch
   useEffect(() => {
@@ -91,7 +94,7 @@ const LostofItems = () => {
         {sortedItems.map((item) => (
           <motion.div
             key={item._id}
-            className="card bg-base-100 shadow-xl p-4 border border-primary"
+            className={`card bg-base-100 shadow-xl p-4 border border-primary ${getBgClass()}`}
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 5 }}
             transition={{
@@ -109,7 +112,7 @@ const LostofItems = () => {
             <div className="card-body p-2">
               <h2 className="card-title">{item.title}</h2>
               <p className="font-bold text-xs lg:text-[18px] mt-2">
-                Location: <span className="text-[16px]"> {item.location} </span>
+                Location: <span className="text-[14px]"> {item.location} </span>
               </p>
               <p className="text-sm text-gray-500">
                 Date: {new Date(item.dateLost).toLocaleDateString()}

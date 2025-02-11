@@ -9,7 +9,7 @@ import { ThemeContext } from "../AuthProvider/ThemeProvider";
 const LatestFindLostItems = () => {
     const [items, setItems] = useState([]);
     const {theme} = useContext(ThemeContext)
-
+    const getBgClass = () => (theme === "dark" ? "bg-gray-800 text-gray-500" : "bg-base-200 text-gray-900");
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -74,7 +74,7 @@ const LatestFindLostItems = () => {
                     sortedItems.map((item) => (
                         <motion.div
                             key={item._id}
-                            className="card card-compact bg-base-100  shadow-xl m-2"
+                            className={`card card-compact ${getBgClass()}  shadow-xl m-2`}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.05 }}
@@ -89,8 +89,8 @@ const LatestFindLostItems = () => {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{item.title}</h2>
-                                <p className={`text-xl ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>Location: {item.location}</p>
-                                <p className={`text-xl ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>
+                                <p className={`text-[16px] ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>Location: {item.location}</p>
+                                <p className={`text-[16px] ${theme === 'dark'?'text-white/75':'text-gray-600'}`}>
                                     Date: {new Date(item.dateLost).toLocaleDateString()}
                                 </p>
                                 <div className="card-actions justify-end">
